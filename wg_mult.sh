@@ -161,7 +161,7 @@ function config_wg(){
     c2=$(cat cpublickey)
     serverip=$(curl ipv4.icanhazip.com)
     port=$(rand 10000 60000)
-    eth=$(ls /sys/class/net| awk 'NR==1&&/^e/{print $1}')
+    eth=$(ls /sys/class/net| awk '/^e/{print $1}')
     chmod 777 -R /etc/wireguard
 
 cat > /etc/wireguard/wg0.conf <<-EOF
